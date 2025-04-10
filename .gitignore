@@ -1,0 +1,146 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Distribution / packaging
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Translations
+*.mo
+*.pot
+
+# Django / Flask stuff:
+local_settings.py
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# celery beat schedule file
+celerybeat-schedule
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+
+# Odoo specific
+odoo/filestore
+.odoo_filestore
+*.dump
+*.gz
+*.log
+
+# Project specific
+.DS_Store
+.idea/
+.vscode/
+*.code-workspace
+.project
+.pydevproject
+.settings/
+
+# Database
+dump.rdb
+*.sql
+*.sqlite
+*.sqlite3
+*.db
+
+# Custom addons specific
+data/
+sessions/
+.qodo/
+
+# Log files
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local environment
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# PID and socket files
+*.pid
+*.sock
+
+# Backup files
+*~
+*.swp
+*.bak
+*.orig
+
+# Virtual environment
+odoo-venv/

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Badge Report Template with dark gray professional color scheme -->
+    <template id="report_employee_badge">
+        <t t-call="web.html_container">
+            <div class="page">
+                <t t-foreach="docs" t-as="employee">
+                    <!-- Card with improved design -->
+                    <div class="card" style="width: 340px; height: 190px; border: 1px solid black; margin: 10px auto; overflow: hidden; display: flex; box-shadow: 0 2px 5px rgba(0,0,0,0.2); border-radius: 8px;">
+                        <!-- Left section (purple) -->
+                        <div style="width: 38%; background-color: #E0E0E0; color: black; padding: 12px; display: flex; flex-direction: column; align-items: center;">
+                            <!-- IMPROVEMENT: Photo with solid white background -->
+                            <div style="width: 70px; height: 100px; margin: 5px auto 10px auto; background-color: white; padding: 1px; border: 2px solid white;">
+                                <img t-if="employee.image_1920" t-att-src="image_data_uri(employee.image_1920)" style="width: 100%; height: 100%; object-fit: cover;" alt="Employee Photo"/>
+                                <div t-if="not employee.image_1920" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background-color: white; color: #444; font-size: 36px;">
+                                    <t t-esc="employee.name and employee.name[0] or 'A'"/>
+                                </div>
+                            </div>
+                            
+                            <!-- Name and position -->
+                            <div style="text-align: center; width: 100%;">
+                                <div style="font-size: 12px; font-weight: bold; margin-top: 2px; color: black;">
+                                    <t t-esc="employee.name" />
+                                </div>
+                                <div style="font-size: 10px; margin-top: 2px; color: black;">
+                                    <t t-esc="employee.job_title" />
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Right section (white) -->
+                        <div style="width: 62%; background-color: white; display: flex; flex-direction: column; justify-content: flex-start; padding: 12px;">
+                            <!-- Logo and company name -->
+                            <div style="text-align: center; margin-bottom: 15px;">
+                                <!-- Logo -->
+                                <div style="margin-bottom: 5px;">
+                                    <t t-if="employee.company_id.logo">
+                                        <img t-att-src="image_data_uri(employee.company_id.logo)" style="height: 25px;" alt="Company Logo"/>
+                                    </t>
+                                    <t t-else="">
+                                        <svg width="25" height="25" viewBox="0 0 24 24" fill="#3D4852">
+                                            <path d="M12,1C7.03,1 3,5.03 3,10V17C3,18.66 4.34,20 6,20H9V12H5V10C5,6.13 8.13,3 12,3C15.87,3 19,6.13 19,10V12H15V20H18C19.66,20 21,18.66 21,17V10C21,5.03 16.97,1 12,1Z"/>
+                                        </svg>
+                                    </t>
+                                </div>
+                                
+                                <!-- Company name - dark gray instead of purple -->
+                                <div style="color: #3D4852; font-size: 14px; font-weight: bold; line-height: 1.2; font-family: Arial, sans-serif;">
+                                    My Company (San Francisco)
+                                </div>
+                                <!-- Removed duplicate San Francisco -->
+                            </div>
+                            
+                            <!-- Divider line - dark gray instead of purple -->
+                            <div style="width: 100%; height: 1px; background-color: #3D4852; margin-bottom: 15px;"></div>
+                            
+                            <!-- Position information -->
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                                <div>
+                                    <div style="font-size: 11px; color: #555555; text-transform: uppercase; font-family: Arial, sans-serif; letter-spacing: 0.5px;">REGISTERED</div>
+                                    <div style="font-size: 11px; color: #555555; text-transform: uppercase; font-family: Arial, sans-serif; letter-spacing: 0.5px;">NURSE</div>
+                                </div>
+                                
+                                <!-- QR Code -->
+                                <div style="width: 70px; height: 70px; margin-right: 5px; margin-top: 28px;">
+                                    <t t-if="employee.qr_code">
+                                        <img t-att-src="image_data_uri(employee.qr_code)" style="width: 100%; height: 100%;" alt="QR Code"/>
+                                    </t>
+                                    <t t-if="not employee.qr_code">
+                                        <!-- Default QR code if none exists for employee -->
+                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEkAAABJCAYAAABxcwvcAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFHklEQVR4nO2dT24TPRTH35gUFf6coBwBTgA3gBMAJ4AN3RdWsGHBAQpIlQoSG5bdlRvACYATlCPQE0CP0OYJHsts7FGcZOw3tmfGX8kKaWbsyS/f92Y88x4mBKaqqm0AwHGvw98ALwDz31ZKNaGP7YcQkIIQAApCACgIAaBYNkMIcUQIcRS6H0uBiw01uQohzkMfA7R8jMQwXkIIzyAkD8ZKOQxD96MVJCHEKSHkCAB6ocfQ4IYQclo7KsuyQQhhV36TUsrLpbVGSpkSQi7w57rRbK3fJ4R8xd/lRp0NXRdCsFqzxuZIp49KKadLafVboCRJbijlZ5GbfcYYO1xao0vH4/FwNpsNGWPXdV2MsRvG2H6n09kGgI96m1LqglJ6jY7rH6XUrtb+fD6/xVKjlB4TQvYJIfuU0mtK6RWl9JQQsmuMcV7ncDgczufzSbfb3dN1G2P7+H4PGGP7jLHb+Xw+m81mw16vd9y2zV37Xkr5LMRYF1hKRkqZ4ueRlHKktU6aTddtVVV1ipvNGb+uT6xr+Pon0zYfhJD9NE3Hl/g5NsZ8hZ9TSumlfnYp5WijhmOMHadpOsavH7IsS8qy/J6m6QQAdrMsS8qy/BEEQoP0u6KqqlMAGDPGfgZkdW0YjLFLANhljA1x9m/UIJ3FwOjauBkaZK1BQohDAPiEUblRCSFeAMBJt9s9QAf4DwBoakttQH4UQhxIKb+YmUxK+R4AzhDijVLqBeeRmVLqOYIcGoHIVh9nv0TfhAQARxijttR4YKOXE2P+dULIkVJqh1K6Y2bmuq7PcC1nOyTbHe9FQYLRbDYdA8C2WXfN5/Mxftxxs40QMgOAnU6ns93r9YwlTl3Xp0qpZwC/F7qEkG2zPqrr+iM6QyuQyrKcaOeu/YKh0bdUMHQIZmYVRbHj0qb2/1LKWwB4omsxIeRHlmWvbG0BBCP0AkI6x263m5RlObXNAs65czYriiLH72mWZUlVVT+MMcbYbcPvSXEGHqNTtPLVZVkmuBlsS63tC9u6Ti+wlVK7lNI9vXiuqqoLmL+MMQds2sgwwM8458f6mrP9gmmapvhZlGV5bfb1kcwxwBnkCX62zRJ/QzJfOdPjHAwGF0VR5J7b2jPGBg65YG77xRh7g0sNxd3OQQDfg/xGkqYpJMlL3J3mP8+xkSxXAPA2z/MUAGZ5nqcA8C7P82sA+Ob7cJzzA8bYvs1PNbXlnB9hjF2j9vJ9+KsQkKqquvTd5jJUSvlGSvnW1scFBWmZCgGpKIoL322uQnVdn3HOB5zzH77aCAHJvJX0rTzPc6VU7rv9uVJKyTk/4JyfeG0oFCSfZb5+MeF7FlmppJQjACh8tRESki9djEajEef8xPNxFk5Syida5/2+jxKN1hJSSB3jRp/jPRLtJr1lzr9FSAs1GAyGPtozNu0BISGBdX9qgeT6WOVfCNImPb++SZIkyVzb8AYJb/dcRQh5hUuSP1JVVT8tH9qeIeH9na0eYmHy6+aWXghZEyTX9g3CzWZ7FuUd0jI2Ja4qiuLUVVrEukFwvjP2AQlXwj5laztJ07RwadM7pKqqvgHA7yS3p8qKoth1adcbJCnlGwB46kpNmuvW4SKUIxQC0jM9mzjnvzjnJ/hkQu/j9oUBQzYlpXwHAH+FJKV8X9f1yHU7W44Uq0JAikJACgEpCgEpCgEpCgEpCgEpCgEptKIQkP4HQlk7/EysIZAAAAAASUVORK5CYII=" alt="Default QR Code" style="width: 100%; height: 100%;"/>
+                                    </t>
+                                </div>
+                            </div>
+                            
+                            <!-- ID Number -->
+                            <div style="font-size: 12px; color: #555555; font-family: Arial, sans-serif;">
+                                ID# EMP-1612
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Page break if not the last employee -->
+                    <t t-if="not employee_last">
+                        <div style="page-break-after: always;"/>
+                    </t>
+                </t>
+            </div>
+        </t>
+    </template>
+</odoo> 

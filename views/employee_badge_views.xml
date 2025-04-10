@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Add Badge fields to employee form view -->
+    <record id="view_employee_form_inherit_badge" model="ir.ui.view">
+        <field name="name">hr.employee.form.badge</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <!-- Add badge button in the header -->
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_generate_badge" 
+                        type="object" 
+                        class="oe_stat_button" 
+                        icon="fa-id-card-o"
+                        string="Generate Badge"/>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="ID Badge" name="id_badge">
+                    <group>
+                        <group>
+                            <field name="badge_number"/>
+                            <field name="date_badge_generated"/>
+                            <field name="badge_expiry_date"/>
+                        </group>
+                        <group>
+                            <field name="qr_code" widget="image" class="oe_avatar" readonly="1" 
+                                   invisible="not qr_code"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_print_employee_badges" model="ir.actions.act_window">
+        <field name="name">Print Employee Badges</field>
+        <field name="res_model">hr.employee</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="hr.view_employee_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Select employees to print their badges
+            </p>
+        </field>
+    </record>
+
+
+    <!-- Hide default report "Print Badge" -->
+    <record id="hr.hr_employee_print_badge" model="ir.actions.report">
+        <field name="binding_model_id" eval="False"/>
+        <field name="binding_type">action</field>
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')])]"/>
+    </record>
+    <menuitem id="menu_employee_badge"
+              name="Employee Badges"
+              parent="hr.menu_human_resources_configuration"
+              action="action_print_employee_badges"
+              sequence="100"/>
+
+</odoo> 
