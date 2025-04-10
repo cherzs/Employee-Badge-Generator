@@ -10,7 +10,7 @@
         - PDF badge printing functionality
     """,
     'category': 'Human Resources',
-    'author' : 'Gharel',
+    'author' : 'Cherzs',
     'depends': ['hr'],
     'data': [
         'views/employee_badge_views.xml',
