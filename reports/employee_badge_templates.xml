@@ -56,26 +56,19 @@
                             
                             <!-- Position information -->
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                                <div>
-                                    <div style="font-size: 11px; color: #555555; text-transform: uppercase; font-family: Arial, sans-serif; letter-spacing: 0.5px;">REGISTERED</div>
-                                    <div style="font-size: 11px; color: #555555; text-transform: uppercase; font-family: Arial, sans-serif; letter-spacing: 0.5px;">NURSE</div>
-                                </div>
-                                
                                 <!-- QR Code -->
-                                <div style="width: 70px; height: 70px; margin-right: 5px; margin-top: 28px;">
+                                <div style="width: 70px; height: 70px; margin-right: 5px; margin-top: 75px; margin-left: 125px;">
                                     <t t-if="employee.qr_code">
                                         <img t-att-src="image_data_uri(employee.qr_code)" style="width: 100%; height: 100%;" alt="QR Code"/>
-                                    </t>
-                                    <t t-if="not employee.qr_code">
-                                        <!-- Default QR code if none exists for employee -->
-                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEkAAABJCAYAAABxcwvcAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFHklEQVR4nO2dT24TPRTH35gUFf6coBwBTgA3gBMAJ4AN3RdWsGHBAQpIlQoSG5bdlRvACYATlCPQE0CP0OYJHsts7FGcZOw3tmfGX8kKaWbsyS/f92Y88x4mBKaqqm0AwHGvw98ALwDz31ZKNaGP7YcQkIIQAApCACgIAaBYNkMIcUQIcRS6H0uBiw01uQohzkMfA7R8jMQwXkIIzyAkD8ZKOQxD96MVJCHEKSHkCAB6ocfQ4IYQclo7KsuyQQhhV36TUsrLpbVGSpkSQi7w57rRbK3fJ4R8xd/lRp0NXRdCsFqzxuZIp49KKadLafVboCRJbijlZ5GbfcYYO1xao0vH4/FwNpsNGWPXdV2MsRvG2H6n09kGgI96m1LqglJ6jY7rH6XUrtb+fD6/xVKjlB4TQvYJIfuU0mtK6RWl9JQQsmuMcV7ncDgczufzSbfb3dN1G2P7+H4PGGP7jLHb+Xw+m81mw16vd9y2zV37Xkr5LMRYF1hKRkqZ4ueRlHKktU6aTddtVVV1ipvNGb+uT6xr+Pon0zYfhJD9NE3Hl/g5NsZ8hZ9TSumlfnYp5WijhmOMHadpOsavH7IsS8qy/J6m6QQAdrMsS8qy/BEEQoP0u6KqqlMAGDPGfgZkdW0YjLFLANhljA1x9m/UIJ3FwOjauBkaZK1BQohDAPiEUblRCSFeAMBJt9s9QAf4DwBoakttQH4UQhxIKb+YmUxK+R4AzhDijVLqBeeRmVLqOYIcGoHIVh9nv0TfhAQARxijttR4YKOXE2P+dULIkVJqh1K6Y2bmuq7PcC1nOyTbHe9FQYLRbDYdA8C2WXfN5/Mxftxxs40QMgOAnU6ns93r9YwlTl3Xp0qpZwC/F7qEkG2zPqrr+iM6QyuQyrKcaOeu/YKh0bdUMHQIZmYVRbHj0qb2/1LKWwB4omsxIeRHlmWvbG0BBCP0AkI6x263m5RlObXNAs65czYriiLH72mWZUlVVT+MMcbYbcPvSXEGHqNTtPLVZVkmuBlsS63tC9u6Ti+wlVK7lNI9vXiuqqoLmL+MMQds2sgwwM8458f6mrP9gmmapvhZlGV5bfb1kcwxwBnkCX62zRJ/QzJfOdPjHAwGF0VR5J7b2jPGBg65YG77xRh7g0sNxd3OQQDfg/xGkqYpJMlL3J3mP8+xkSxXAPA2z/MUAGZ5nqcA8C7P82sA+Ob7cJzzA8bYvs1PNbXlnB9hjF2j9vJ9+KsQkKqquvTd5jJUSvlGSvnW1scFBWmZCgGpKIoL322uQnVdn3HOB5zzH77aCAHJvJX0rTzPc6VU7rv9uVJKyTk/4JyfeG0oFCSfZb5+MeF7FlmppJQjACh8tRESki9djEajEef8xPNxFk5Syida5/2+jxKN1hJSSB3jRp/jPRLtJr1lzr9FSAs1GAyGPtozNu0BISGBdX9qgeT6WOVfCNImPb++SZIkyVzb8AYJb/dcRQh5hUuSP1JVVT8tH9qeIeH9na0eYmHy6+aWXghZEyTX9g3CzWZ7FuUd0jI2Ja4qiuLUVVrEukFwvjP2AQlXwj5laztJ07RwadM7pKqqvgHA7yS3p8qKoth1adcbJCnlGwB46kpNmuvW4SKUIxQC0jM9mzjnvzjnJ/hkQu/j9oUBQzYlpXwHAH+FJKV8X9f1yHU7W44Uq0JAikJACgEpCgEpCgEpCgEpCgEpCgEptKIQkP4HQlk7/EysIZAAAAAASUVORK5CYII=" alt="Default QR Code" style="width: 100%; height: 100%;"/>
                                     </t>
                                 </div>
                             </div>
                             
-                            <!-- ID Number -->
-                            <div style="font-size: 12px; color: #555555; font-family: Arial, sans-serif;">
-                                ID# EMP-1612
+                            <!-- ID Number Section with Additional Info -->
+                            <div style="font-size: 10px; color: #555555; font-family: Arial, sans-serif; margin-bottom: 15px;">
+                                <div><t t-esc="employee.badge_number"/></div>
+                                <div style="margin-top: 5px;"><t t-esc="employee.department_id.name"/></div>
+                                <div style="margin-top: 5px;">Issued: <t t-esc="context_timestamp(datetime.datetime.now()).strftime('%d/%m/%Y')"/></div>
                             </div>
                         </div>
                     </div>

@@ -144,3 +144,4 @@ yarn-error.log*
 
 # Virtual environment
 odoo-venv/
+.qodo
