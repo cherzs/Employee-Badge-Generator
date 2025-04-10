@@ -8,7 +8,6 @@ This Odoo module allows you to generate and print ID cards/badges for employees.
 - Automatically generates unique badge numbers
 - QR code generation containing employee information
 - Configurable badge expiry date
-- Customizable badge background color
 - PDF badge printing functionality
 
 ## Installation
