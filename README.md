@@ -41,4 +41,3 @@ The module adds the following fields to the hr.employee model:
 - `qr_code`: QR code containing employee information (auto-generated)
 - `date_badge_generated`: Date when the badge was generated
 - `badge_expiry_date`: Date when the badge expires (default: 1 year from generation)
-- `badge_background_color`: Color picker for badge background 
